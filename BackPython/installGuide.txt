@@ -1,0 +1,6 @@
+in this folder run this commands:
+py -3.11 -m venv myenv
+pip install -r requirements.txt
+
+
+run this as backend while front running.
