@@ -1,0 +1,3 @@
+open the FrontTSX folder with visualCode and open BackPython with PyCharm.
+in the BackPython follow the installGuide.txt there to open virtual environment and install the requirements, then just run the main and the server will run on port 5000. 
+then, Run "npm run dev" in the terminal of FrontTSX and then the front will run on localhost:5173. get to there and start running the website! 
