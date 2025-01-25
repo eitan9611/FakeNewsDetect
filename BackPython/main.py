@@ -25,6 +25,7 @@ def submit_text():
         sentiment_score = detectToxic.isToxic(text)
         contextual_score = detectBias.isBias(text)
 
+        print("getting into Extract")
         entities_list_not_cleaned = ExtractList_FromTweet.Extract(text)
         print(entities_list_not_cleaned)
         entities_list = []
