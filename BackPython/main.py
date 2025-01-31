@@ -1,6 +1,6 @@
 from transformers import logging as transformers_logging
 transformers_logging.set_verbosity_error()
-from FourModels import detectAI, detectBias, detectToxic
+from FourModels import detectAI, detectBias, detectToxic, VotingClassifier
 import random
 from Tags import ExtractList_FromTweet, CreateTagsColumn, FixAndFill, CalcTagsPrecentage
 
@@ -24,6 +24,9 @@ def submit_text():
         ai_detected = detectAI.isAi(text)
         sentiment_score = detectToxic.isToxic(text)
         contextual_score = detectBias.isBias(text)
+        general_score= 0.57
+
+        overall_score = VotingClassifier.calc(ai_detected,sentiment_score,contextual_score,general_score)
 
         print("getting into Extract")
         entities_list_not_cleaned = ExtractList_FromTweet.Extract(text)
@@ -56,7 +59,7 @@ def submit_text():
                 "model2": sentiment_score * 100,  # Toxicity Score
                 "model3": contextual_score * 100,  # Bias Score
                 "model4": random.random() * 100,  # Random Score
-                "overall": random.random() * 100  # Overall Random Score
+                "overall": overall_score  # Overall Random Score
             },
             "entities": filtered_entities,  # Filtered entities
             "links": filtered_links,  # Filtered links

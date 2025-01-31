@@ -5,6 +5,22 @@ import { useTheme } from '../context/ThemeContext';
 import CircularProgress from '../components/CircularProgress';
 import ModelInfoModal from '../components/ModelInfoModal';
 
+const getScoreColor = (score) => {
+  if (score <= 20) return 'text-red-600';
+  if (score <= 40) return 'text-orange-500';
+  if (score <= 60) return 'text-yellow-500';
+  if (score <= 80) return 'text-green-400';
+  return 'text-green-600';
+};
+
+const getScoreText = (score) => {
+  if (score <= 20) return 'The text is most likely fake and unreliable';
+  if (score <= 40) return 'The text is likely fake';
+  if (score <= 60) return 'Uncertain whether the text is reliable or not';
+  if (score <= 80) return 'The text is probably reliable';
+  return 'The text is very reliablexcellent Performance!';
+};
+
 export default function Analysis({ analysisData, setAnalysisData }) {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
@@ -52,7 +68,6 @@ export default function Analysis({ analysisData, setAnalysisData }) {
       setLoading(false);
     }
   };
-  
 
   const handleClear = () => {
     setAnalysisData({
@@ -65,33 +80,33 @@ export default function Analysis({ analysisData, setAnalysisData }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950 transition-colors duration-300">
-    <div className="container mx-auto px-4 py-8">
-      <nav className="flex justify-between items-center mb-8">
-        <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-        >
-          <ArrowLeft size={20} />
-          <span>Back to Home</span>
-        </button>
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300"
-          aria-label="Toggle theme"
-        >
-          {theme === 'light' ? (
-            <Moon size={24} className="text-gray-700 dark:text-gray-300" />
-          ) : (
-            <Sun size={24} className="text-gray-700 dark:text-gray-300" />
-          )}
-        </button>
-      </nav>
+      <div className="container mx-auto px-4 py-8">
+        <nav className="flex justify-between items-center mb-8">
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? (
+              <Moon size={24} className="text-gray-700 dark:text-gray-300" />
+            ) : (
+              <Sun size={24} className="text-gray-700 dark:text-gray-300" />
+            )}
+          </button>
+        </nav>
 
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-            Text Analysis
-          </h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Text Analysis
+            </h2>
             
             <textarea
               value={analysisData.inputText}
@@ -159,12 +174,16 @@ export default function Analysis({ analysisData, setAnalysisData }) {
                 ))}
               </div>
 
-              <div className="flex justify-center mb-8">
-                <CircularProgress
-                  percentage={analysisData.results.overall}
-                  label="Overall Score"
-                  size="lg"
-                />
+              <div className="flex flex-col items-center justify-center mb-8 p-8 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                <div 
+                  className={`text-6xl font-black tracking-tight ${getScoreColor(analysisData.results.overall)} transition-colors duration-300`}
+                  style={{ 
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+                    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                  }}
+                >
+                  {getScoreText(analysisData.results.overall)}
+                </div>
               </div>
 
               <div className="flex justify-center">
