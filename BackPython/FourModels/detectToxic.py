@@ -1,12 +1,14 @@
-#https://huggingface.co/tweetpie/toxic-content-detector
-import FourModels.suppress_tf
-from transformers import pipeline
-pipe = pipeline("text-classification", model="tweetpie/toxic-content-detector", padding=True, truncation=True)
+# #https://huggingface.co/tweetpie/toxic-content-detector
+# import FourModels.suppress_tf
+from transformers import pipeline, AutoConfig
+pipe = pipeline("text-classification", model="unitary/toxic-bert", padding=True, truncation=True)
 
-#LABEL2 = TOXIC, LABEL0 = NON TOXIC
+#{0: 'toxic', 1: 'severe_toxic', 2: 'obscene', 3: 'threat', 4: 'insult', 5: 'identity_hate'}
+#print(pipe("the 'nazi' zionist regime is killing innocent people")) #[{'label': 'toxic', 'score': 0.8823136687278748}]
+
+
+
 def isToxic(text):
     result = pipe(text)
-    if result[0]['label'] == "LABEL_0":
-        return float(result[0]['score']) - 0.5
-    return result[0]['score']
+    return float(result[0]['score'])
 

@@ -12,8 +12,8 @@ def calc(ai_detected, sentiment_score, contextual_score, general_score):
 
     # Assign different weights
     sentiment_weight = (sentiment_score*100)*0.2
-    contextual_weight = (contextual_score*100)*0.3
-    general_weight = (general_score*100)*0.4
+    contextual_weight = (contextual_score*100)*0.1
+    general_weight = (general_score*100)*0.6
     ai_weight = (ai_detected*100)*0.1
 
     # Compute weighted sum

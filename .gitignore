@@ -1,1 +1,18 @@
 BackPython/myenv/
+BackPython/fine-tuned-model/checkpoint-2000/
+# Ignore Python compiled files
+*.cpython-*.pyc
+
+# Ignore all __pycache__ directories
+**/__pycache__/
+BackPython/FourModels/__pycache__/
+BackPython/FourModels/__pycache__/
+BackPython/Tags/__pycache__/CreateTagsColumn.cpython-311.pyc
+BackPython/FourModels/__pycache__/detectAI.cpython-311.pyc
+BackPython/FourModels/__pycache__/detectBias.cpython-311.pyc
+BackPython/FourModels/__pycache__/detectToxic.cpython-311.pyc
+BackPython/FourModels/__pycache__/suppress_tf.cpython-311.pyc
+BackPython/Tags/__pycache__/FixAndFill.cpython-311.pyc
+
+BackPython/FourModels/__pycache__/detectAI.cpython-311.pyc
+BackPython/Tags/__pycache__/ExtractList_FromTweet.cpython-311.pyc
