@@ -42,7 +42,8 @@ def submit_text():
         filtered_entities = []
         filtered_links = []
         for i, link in enumerate(links_list):
-            if link != "No link found even after retry":
+            print(f"{link}")
+            if link != "No link found even after retry" and link != "https://en.wikipedia.org/wiki/None_(Meshuggah_EP)":
                 filtered_entities.append(entities_list[i])
                 filtered_links.append(link)
 

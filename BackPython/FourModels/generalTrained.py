@@ -18,16 +18,18 @@ the model had results of:
 
 We uploaded the model to the Hugging Face model hub and it can be found here: https://huggingface.co/Matanpom100/FakeNews
 """
+import FourModels.suppress_tf
 from transformers import pipeline
 
 
-model = pipeline("text-classification", model="Matanpom100/FakeNews", token=True)
+model = pipeline("text-classification", model="matanpom100/FakeNews", token=True)
 
 # בדיקה עם טקסט לדוגמה
-# text = "WHAT HAPPENED To the Nova party ravers? I heard they were all killed by the IDF in Hanibal operations"
-# result = model(text)
-# print(text)
-# print(result)
+#text = "WHAT HAPPENED To the Nova party ravers? I heard they were all killed by the IDF in Hanibal operations"
+#result = model(text)
+#print(text)
+#print(result)
+
 
 
 def isFakeNews(text):

@@ -176,7 +176,7 @@ export default function Analysis({ analysisData, setAnalysisData }) {
 
               <div className="flex flex-col items-center justify-center mb-8 p-8 bg-gray-50 dark:bg-gray-700 rounded-xl">
                 <div 
-                  className={`text-6xl font-black tracking-tight ${getScoreColor(analysisData.results.overall)} transition-colors duration-300`}
+                  className={`text-4xl font-black tracking-tight ${getScoreColor(analysisData.results.overall)} transition-colors duration-300`}
                   style={{ 
                     textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
                     fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'

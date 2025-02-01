@@ -3,28 +3,28 @@ import { X } from 'lucide-react';
 
 const modelInfo = {
   model1: {
-    title: 'Language Pattern Analysis',
-    description: 'Analyzes writing patterns, grammar usage, and linguistic features to identify potential signs of misinformation. This model is trained on a vast dataset of verified fake and legitimate news articles.',
-    methodology: 'Uses natural language processing (NLP) techniques to evaluate text structure, complexity, and common patterns associated with fake news.',
-    significance: 'Helps identify subtle linguistic markers that may indicate deceptive content.'
+    title: 'AI-Generated Text Detection Model',
+    description: 'This model identifies whether a text was written by AI. AI-generated content is often used in misinformation campaigns to produce large volumes of articles quickly. While AI text itself isn’t necessarily fake news, detecting it can help determine whether an article was created by a credible human journalist or an automated system.',
+    example: 'Recent advancements in quantum computing suggest a potential breakthrough in solving NP-hard problems within the next decade.',
+    exampleAnalysis: 'The model recognizes AI-generated patterns, such as highly technical language, broad futuristic claims, and a lack of specific sources. While the statement isn’t necessarily false, it appears AI-generated rather than written by a human expert.'
   },
   model2: {
-    title: 'Source Credibility Score',
-    description: 'Evaluates the reliability of information sources and cross-references with known credible sources. This model maintains an updated database of verified news sources and their credibility ratings.',
-    methodology: 'Compares content against a database of verified sources and analyzes citation patterns.',
-    significance: 'Critical for determining the trustworthiness of information based on its source.'
+    title: 'Toxicity Detection Model',
+    description: 'This model analyzes the text for harmful or offensive language. Toxic speech can indicate attempts to manipulate public opinion by using emotionally charged language, insults, or inflammatory rhetoric. Detecting toxicity helps filter out sources that rely on aggressive communication to spread misinformation.',
+    example: 'This politician is a complete idiot, spreading nothing but lies to brainwash people.',
+    exampleAnalysis: 'The model identifies strong negative language ("idiot," "lies," "brainwash") as toxic. While this doesnt directly prove fake news, it suggests the content may be emotionally driven rather than factual.'
   },
   model3: {
-    title: 'Contextual Verification',
-    description: 'Examines the broader context of the information, including temporal relevance and consistency with established facts. This model checks for logical inconsistencies and factual accuracy.',
-    methodology: 'Cross-references claims against verified fact databases and checks for temporal consistency.',
-    significance: 'Helps identify content that may be misleading due to lack of context or outdated information.'
+    title: 'Bias Detection Model',
+    description: 'This model evaluates the text for political or ideological bias. News articles with a strong bias often present information in a one-sided manner, exaggerating certain details while downplaying others. While bias alone doesn’t confirm fake news, highly biased content is more likely to mislead readers by omitting key facts or framing events in a distorted way.',
+    example: 'The new policy is a disaster, proving once again that the government only cares about the wealthy elite.',
+    exampleAnalysis: 'The model detects bias in the negative framing of the policy and the assumption that the government favors the wealthy. The lack of neutral or balanced language suggests a strong opinion rather than an objective report.'
   },
   model4: {
-    title: 'Sentiment Analysis',
-    description: 'Analyzes the emotional tone and bias in the content to identify potential manipulation attempts. This model is trained to detect emotional manipulation tactics common in fake news.',
-    methodology: 'Uses advanced sentiment analysis algorithms to detect emotional manipulation and extreme bias.',
-    significance: 'Helps identify content designed to trigger emotional responses rather than inform.'
+    title: 'General Fake News Detection Model',
+    description: 'This pre-trained model classifies news articles as real or fake based on linguistic patterns, source credibility, and alignment with verified information. It examines whether the claims made in the text match known facts, cross-references sources, and checks for misleading structures commonly found in fake news.',
+    example: 'Scientists confirm that drinking one cup of lemon water daily completely eliminates the risk of cancer.',
+    exampleAnalysis: 'The model flags this claim as likely fake because it lacks a credible source, makes an absolute statement ("completely eliminates"), and contradicts established scientific consensus.'
   }
 };
 
@@ -59,19 +59,19 @@ export default function ModelInfoModal({ model, onClose }) {
 
             <div>
               <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                Methodology
+                Example
               </h4>
               <p className="text-gray-600 dark:text-gray-400">
-                {info.methodology}
+                {info.example}
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                Significance
+                Example Analysis
               </h4>
               <p className="text-gray-600 dark:text-gray-400">
-                {info.significance}
+                {info.exampleAnalysis}
               </p>
             </div>
           </div>

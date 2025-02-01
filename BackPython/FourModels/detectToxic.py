@@ -1,5 +1,5 @@
 # #https://huggingface.co/tweetpie/toxic-content-detector
-# import FourModels.suppress_tf
+import FourModels.suppress_tf
 from transformers import pipeline, AutoConfig
 pipe = pipeline("text-classification", model="unitary/toxic-bert", padding=True, truncation=True)
 

@@ -91,8 +91,8 @@ export default function RedFlags({ analysisData }) {
                         className="h-full rounded-full transition-all duration-300"
                         style={{
                           width: `${entity.fakeNewsPercentage}%`,
-                          backgroundColor: entity.fakeNewsPercentage < 30 ? '#10B981' :
-                                         entity.fakeNewsPercentage < 70 ? '#FBBF24' : '#EF4444'
+                          backgroundColor: entity.fakeNewsPercentage < 8 ? '#10B981' :
+                                         entity.fakeNewsPercentage < 15 ? '#FBBF24' : '#EF4444'
                         }}
                       ></div>
                     </div>
