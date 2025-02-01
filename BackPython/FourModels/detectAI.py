@@ -1,7 +1,7 @@
 
 from transformers import pipeline
 pipe = pipeline("text-classification", model="PirateXX/AI-Content-Detector", padding=True, truncation=True)
-
+#https://huggingface.co/PirateXX/AI-Content-Detector
 #print(pipe("Israeli-American Keith Siegel and two others freed in scenes that were more organized than the chaotic previous round"))
 
 def isAi(text):
